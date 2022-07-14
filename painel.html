@@ -2,23 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WebSocket Simple Chat</title>
+    <title>Painel de Mensagens</title>
 </head>
 <body>
-<p>
-    <label for="nome">Seu nome: </label>
-    <input id="nome" type="text" placeholder="Seu nome"/>
-</p>
-<p>
-    <label for="input">Sua mensagem: </label>
-    <input id="input" type="text" placeholder="Sua mensagem"/>
-</p>
-<hr>
-<div id="chat"></div>
+
+<div id="painel"></div>
 <script>
-    let chat = document.getElementById('chat');
-    let input = document.getElementById('input');
-    const nome = document.getElementById('nome');
+    let chat = document.getElementById('painel');    
     const socket = new WebSocket('ws://localhost:9990/chat');
 
     // Ao receber mensagens do servidor
@@ -26,7 +16,7 @@
         // Deserializamos o objeto
         const data = JSON.parse(event.data);
         // Escrevemos no DOM
-        chat.insertAdjacentHTML('beforeend', "<p><b>" + data.nome + " diz: </b>" + data.mensagem + "</p>");
+        painel.insertAdjacentHTML('beforeend', "<p><b>" + data.nome + " diz: </b>" + data.mensagem + "</p><hr>");
     });
 
     // Ao enviar uma mensagem

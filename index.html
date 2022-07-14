@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WebSocket EchoServer</title>
+    <title>SD Chat</title>
 </head>
 <body>
 <label for="input">Digite aqui: </label>
@@ -27,13 +27,9 @@
     input.addEventListener('keyup', function (event) {
         if (event.keyCode === 13) {
             socket.send(this.value);
-            this.value = 'teste';
-            console.log(this.value);
+            this.value = '';
         }
-        socket.send(this.value+"1");
-
     });
-
 </script>
 </body>
 </html>
